@@ -3,13 +3,13 @@
     <li>
       <strong><%= e.name %></strong>
       in <%= e.location %>:
-      <%= number_to_currency(e.price, precision: 0) %>
+      <%= price(e) %>
     </li>
     <p>
-      <%= e.description %>
+      <%= truncate(e.description, length: 35, separator: ' ') %>
     </p>
     <p>
-      <%= e.starts_at %>
+      <%= day_and_time(e) %>
     </p>
   <% end %>
 </ul>
