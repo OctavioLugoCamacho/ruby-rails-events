@@ -5,5 +5,11 @@
       in <%= e.location %>:
       <%= number_to_currency(e.price, precision: 0) %>
     </li>
+    <p>
+      <%= e.description %>
+    </p>
+    <p>
+      <%= e.starts_at %>
+    </p>
   <% end %>
 </ul>
