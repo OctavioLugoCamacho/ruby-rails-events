@@ -1,5 +1,8 @@
 <% @events.each do |e| %>
   <section class="event">
+    <div class="image">
+      <%= image_tag e.image_file_name %>
+    </div>
     <div class="summary">
       <h2><%= link_to e.name, e %></h2>
       <h3><%= day_and_time(e) %> in <%= e.location %></h3>
