@@ -10,8 +10,7 @@
       <%= @event.description %>
     </p>
     <div class="register">
-      <%= link_to "Register!", new_event_registration_path(@event),
-        class: "register" %>
+      <%= register_or_sold_out(@event) %>
       <p>
         <%= link_to "Who's registered?", event_registrations_path(@event) %>
       </p>
