@@ -18,8 +18,10 @@
   </div>
 </section>
 
-<section class="admin">
-  <%= link_to "Edit", edit_event_path(@event), class: "button" %>
-  <%= link_to "Delete", @event, class: "button", method: :delete,
-    data: { confirm: "Really?" } %>
-</section>
+<% if current_user_admin? %>
+  <section class="admin">
+    <%= link_to "Edit", edit_event_path(@event), class: "button" %>
+    <%= link_to "Delete", @event, class: "button", method: :delete,
+      data: { confirm: "Really?" } %>
+  </section>
+<% end %>
