@@ -26,4 +26,12 @@
       </div>
     <% end %>
   <% end %>
+  <% if @liked_events.present? %>
+    <h3>Liked Events</h3>
+    <div class="liked-events">
+      <% @liked_events.each do |event| %>
+        <%= link_to image_tag(event.image_file_name), event %>
+      <% end %>
+    </div>
+  <% end %>
 </section>
