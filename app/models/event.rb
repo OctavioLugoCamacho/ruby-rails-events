@@ -2,6 +2,9 @@ class Event < ApplicationRecord
   has_many :registrations, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
+  has_many :categorizations, dependent: :destroy
+  has_many :categories, through: :categorizations
+
   validates :name, :description, :location, presence: true
   validates :description, length: { minimum: 25 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
