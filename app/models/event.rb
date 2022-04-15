@@ -19,10 +19,6 @@ class Event < ApplicationRecord
   scope :free, -> { upcoming.where(price: 0.0).order(:name) }
   scope :recent, ->(max = 3){ past.limit(max) }
 
-  def self.upcoming
-    where("starts_at > ?", Time.now).order("starts_at")
-  end
-
   def free?
     price.zero?
   end
