@@ -20,8 +20,8 @@
   <%= f.label :capacity %>
   <%= f.number_field :capacity %>
 
-  <%= f.label :image_file_name %>
-  <%= f.text_field :image_file_name %>
+  <%= f.label :main_image %>
+  <%= f.file_field :main_image %>
 
   <div class="checkboxes">
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
