@@ -12,6 +12,7 @@ Event.create!([
     location: 'Denver, CO',
     price: 0.00,
     starts_at: 30.days.from_now,
+    image_file_name: 'bugsmash.png'
     description: %{
       Join us for a fun evening of bug smashing! It's a great
       way to get involved in open source projects whether you're
