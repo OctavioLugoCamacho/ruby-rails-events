@@ -12,7 +12,6 @@ Event.create!([
     location: 'Denver, CO',
     price: 0.00,
     starts_at: 30.days.from_now,
-    image_file_name: 'bugsmash.png',
     description: %{
       Join us for a fun evening of bug smashing! It's a great
       way to get involved in open source projects whether you're
@@ -25,7 +24,6 @@ Event.create!([
     location: 'Austin, TX',
     price: 15.00,
     starts_at: 45.days.from_now,
-    image_file_name: 'hackathon.png',
     description: %{
       Got a killer app idea you've been itching to work on? Hunker
       down and hack away! This is an intense, focused day of hacking
@@ -38,7 +36,6 @@ Event.create!([
     location: 'Dallas, TX',
     price: 75.00,
     starts_at: 65.days.from_now,
-    image_file_name: 'katacamp.png',
     description: %{
       Kata Camp is where developers go to practice their craft without interruptions. Skip the status reports and stand-up meetings of a typical project. Just get 'er done! Price includes a buffet lunch and a leather-bound journal to record your kata achievements.
     }.squish
@@ -48,7 +45,6 @@ Event.create!([
     location: 'Portland, OR',
     price: 0.00,
     starts_at: 20.days.ago,
-    image_file_name: 'coffee-code.png',
     description: %{
       Start your day off right with a good cup of Joe while you sling some code with other local developers. By the time you hit the office, you'll be in the groove!
     }.squish
@@ -58,7 +54,6 @@ Event.create!([
     location: 'Reston, VA',
     price: 0.00,
     starts_at: 2.days.ago,
-    image_file_name: 'rails-user-group.png',
     description: %{
       Come enjoy a technical talk and meet local Rails developers! This week's topic is a comparison of editors, templating systems, and whether to use tabs or spaces.
     }.squish
@@ -68,7 +63,6 @@ Event.create!([
     location: 'Chigaco, IL',
     price: 0.00,
     starts_at: 5.days.ago,
-    image_file_name: 'ruby-user-group.png',
     description: %{
       Do you heart Ruby? So do we! Every week a local developer presents
       a new Ruby-related topic to help you keep on top of your game.
@@ -88,7 +82,6 @@ Event.create!([
     location: 'Minneapolis, MN',
     price: 0.00,
     starts_at: 90.days.from_now,
-    image_file_name: 'drone-zone.png',
     description: %{
       What happens when software and hardware geeks get together?
       Thing spin, whirl, and (possibly) collide! Everyone is welcome, whether you're new to hacking with drones and drone software, or have experience that reaches to the sky.
@@ -99,9 +92,24 @@ Event.create!([
     location: 'San Diego, CA',
     price: 25.00,
     starts_at: 10.days.from_now,
-    image_file_name: 'ninjas.png',
     description: %{
       Why ninjas? We have no idea, but the icon is cool. Don't miss this opportunity to show off your ninja moves.
     }.squish
   }
 ])
+
+[
+  ["BugSmash", "bugsmash.png"],
+  ["Hackathon", "hackathon.png"],
+  ["Kata Camp", "katacamp.png"],
+  ["Coffee 'n Code", "coffee-code.png"],
+  ["Rails User Group", "rails-user-group.png"],
+  ["Ruby User Group", "ruby-user-group.png"],
+  ["5-Minute Lightning Talks", "lightning.png"],
+  ["Drone Zone", "drone-zone.png"],
+  ["Coding Ninjas", "ninjas.png"]
+].each do |event_name, file_name|
+  e = Event.find_by(name: event_name)
+  f = File.open(Rails.root.join("app/assets/images/#{file_name}"))
+  e.main_image.attach(io: f, filename: file_name)
+end

@@ -1,5 +1,4 @@
 module EventsHelper
-
   def price(e)
     if e.free?
       "Free"
