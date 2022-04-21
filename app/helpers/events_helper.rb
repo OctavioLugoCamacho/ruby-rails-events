@@ -15,7 +15,7 @@ module EventsHelper
     if e.main_image.attached?
       image_tag e.main_image
     else
-      image_tag "placeholder"
+      image_tag "placeholder.png"
     end
   end
 end
